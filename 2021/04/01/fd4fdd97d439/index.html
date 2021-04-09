@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"shouge.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="命名前网景通讯公司（Netscape）知名工程师 Phil Karlton 也说过：  There are only two hard things in Computer Science: cache invalidation and naming things.   命名非常能体现一个工程师的基本编码素养， 命名的好坏，对于代码的可读性非常重要，甚至起到决定性作用。混乱的命名不仅让我们对代码">
+  <meta name="description" content="前网景通讯公司（Netscape）知名工程师 Phil Karlton 也说过：  There are only two hard things in Computer Science: cache invalidation and naming things.   命名非常能体现一个工程师的基本编码素养， 命名的好坏，对于代码的可读性非常重要，甚至起到决定性作用。混乱的命名不仅让我们对代码难以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Nameing Conventions">
 <meta property="og:url" content="https://shouge.me/2021/04/01/fd4fdd97d439/index.html">
 <meta property="og:site_name" content="shou ge| Blog">
-<meta property="og:description" content="命名前网景通讯公司（Netscape）知名工程师 Phil Karlton 也说过：  There are only two hard things in Computer Science: cache invalidation and naming things.   命名非常能体现一个工程师的基本编码素养， 命名的好坏，对于代码的可读性非常重要，甚至起到决定性作用。混乱的命名不仅让我们对代码">
+<meta property="og:description" content="前网景通讯公司（Netscape）知名工程师 Phil Karlton 也说过：  There are only two hard things in Computer Science: cache invalidation and naming things.   命名非常能体现一个工程师的基本编码素养， 命名的好坏，对于代码的可读性非常重要，甚至起到决定性作用。混乱的命名不仅让我们对代码难以">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://picsum.photos/1000/400?random=1617988035368">
 <meta property="article:published_time" content="2021-03-31T17:10:27.000Z">
-<meta property="article:modified_time" content="2021-04-09T17:08:07.620Z">
+<meta property="article:modified_time" content="2021-04-09T17:14:21.062Z">
 <meta property="article:author" content="shou ge">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-04-10 01:08:07" itemprop="dateModified" datetime="2021-04-10T01:08:07+08:00">2021-04-10</time>
+                <time title="Modified: 2021-04-10 01:14:21" itemprop="dateModified" datetime="2021-04-10T01:14:21+08:00">2021-04-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -219,7 +219,7 @@
 
       
         <p><img src="https://picsum.photos/1000/400?random=1617988035368" alt="插图"></p>
-<h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><p>前网景通讯公司（Netscape）知名工程师 Phil Karlton 也说过：</p>
+<p>前网景通讯公司（Netscape）知名工程师 Phil Karlton 也说过：</p>
 <blockquote>
 <p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
 </blockquote>
@@ -341,7 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%95%BF%E6%89%8D%E6%98%AF%E6%9C%80%E5%90%88%E9%80%82%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">多长才是最合适的?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%80%E5%8C%96%E5%91%BD%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">利用上下文简化命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%91%BD%E5%90%8D%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">如何命名一些特殊的类</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%95%BF%E6%89%8D%E6%98%AF%E6%9C%80%E5%90%88%E9%80%82%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">多长才是最合适的?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%80%E5%8C%96%E5%91%BD%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">利用上下文简化命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%91%BD%E5%90%8D%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">如何命名一些特殊的类</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
