@@ -20,23 +20,22 @@
     var CONFIG = {"hostname":"shouge.me","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="工厂方法模式是一种创建型设计模式，其在父类中提供一个创建对象的方法，允许子类决定实例化对象的类型。  工厂分为简单工厂模式(SimpleFactory),  工厂方法模式(FactoryMethod),  抽象工厂模式(AbstractFactory)。三种模式可以理解为同一种编程思想的三个版本。">
+  <meta name="description" content="根据条件从数据库表中查询 [存在] 与 [不存在]两种状态。 在业务代码中,需要根据一个或多个条件,查询是否存在记录,不关心有多少条记录。普遍写法如下: SQL1SELECT COUNT(*) FROM tableName WHERE xxx &#x3D; 123 AND is_deleted &#x3D; 0;  JAVA12345int count &#x3D; xxDao.countxxByxx(params);if">
 <meta property="og:type" content="article">
-<meta property="og:title" content="factory method">
-<meta property="og:url" content="https://shouge.me/2021/04/10/52956a7eae9c/index.html">
+<meta property="og:title" content="sql判断记录是否存在">
+<meta property="og:url" content="https://shouge.me/2021/04/11/40b026b41836/index.html">
 <meta property="og:site_name" content="shou ge| Blog">
-<meta property="og:description" content="工厂方法模式是一种创建型设计模式，其在父类中提供一个创建对象的方法，允许子类决定实例化对象的类型。  工厂分为简单工厂模式(SimpleFactory),  工厂方法模式(FactoryMethod),  抽象工厂模式(AbstractFactory)。三种模式可以理解为同一种编程思想的三个版本。">
+<meta property="og:description" content="根据条件从数据库表中查询 [存在] 与 [不存在]两种状态。 在业务代码中,需要根据一个或多个条件,查询是否存在记录,不关心有多少条记录。普遍写法如下: SQL1SELECT COUNT(*) FROM tableName WHERE xxx &#x3D; 123 AND is_deleted &#x3D; 0;  JAVA12345int count &#x3D; xxDao.countxxByxx(params);if">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://picsum.photos/1000/400?random=1618131569883">
-<meta property="article:published_time" content="2021-04-09T16:02:19.000Z">
-<meta property="article:modified_time" content="2021-04-11T08:59:40.174Z">
+<meta property="og:image" content="https://picsum.photos/1000/400?random=1618131525351">
+<meta property="article:published_time" content="2021-04-11T09:02:33.000Z">
+<meta property="article:modified_time" content="2021-04-11T09:02:25.609Z">
 <meta property="article:author" content="shou ge">
-<meta property="article:tag" content="design-pattrns">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://picsum.photos/1000/400?random=1618131569883">
+<meta name="twitter:image" content="https://picsum.photos/1000/400?random=1618131525351">
 
-<link rel="canonical" href="https://shouge.me/2021/04/10/52956a7eae9c/">
+<link rel="canonical" href="https://shouge.me/2021/04/11/40b026b41836/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>factory method | shou ge| Blog</title>
+  <title>sql判断记录是否存在 | shou ge| Blog</title>
   
 
 
@@ -166,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://shouge.me/2021/04/10/52956a7eae9c/">
+    <link itemprop="mainEntityOfPage" href="https://shouge.me/2021/04/11/40b026b41836/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/17906190">
@@ -179,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          factory method
+          sql判断记录是否存在
         </h1>
 
         <div class="post-meta">
@@ -188,23 +187,25 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-04-10 00:02:19" itemprop="dateCreated datePublished" datetime="2021-04-10T00:02:19+08:00">2021-04-10</time>
+              <time title="Created: 2021-04-11 17:02:33 / Modified: 17:02:25" itemprop="dateCreated datePublished" datetime="2021-04-11T17:02:33+08:00">2021-04-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-04-11 16:59:40" itemprop="dateModified" datetime="2021-04-11T16:59:40+08:00">2021-04-11</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/design-pattrns/" itemprop="url" rel="index"><span itemprop="name">design-pattrns</span></a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/mysql/mybatis/" itemprop="url" rel="index"><span itemprop="name">mybatis</span></a>
                 </span>
             </span>
 
@@ -219,10 +220,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://picsum.photos/1000/400?random=1618131569883" alt="插图"></p>
-<p><strong>工厂方法模式</strong>是一种创建型设计模式，其在父类中提供一个创建对象的方法，允许子类决定实例化对象的类型。</p>
+        <p><img src="https://picsum.photos/1000/400?random=1618131525351" alt="插图"></p>
+<p>根据条件从数据库表中查询 [存在] 与 [不存在]两种状态。</p>
+<p>在业务代码中,需要根据一个或多个条件,查询是否存在记录,不关心有多少条记录。普遍写法如下:</p>
+<h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> tableName <span class="keyword">WHERE</span> xxx <span class="operator">=</span> <span class="number">123</span> <span class="keyword">AND</span> is_deleted <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = xxDao.countxxByxx(params);</span><br><span class="line"><span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="推荐写法"><a href="#推荐写法" class="headerlink" title="推荐写法"></a>推荐写法</h2><p>推荐优化方案如下:</p>
+<h3 id="SQL-1"><a href="#SQL-1" class="headerlink" title="SQL"></a>SQL</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">1</span> <span class="keyword">FROM</span> tableName <span class="keyword">WHERE</span> xxx <span class="operator">=</span> <span class="number">123</span> <span class="keyword">AND</span> is_deleted <span class="operator">=</span> <span class="number">0</span> LIMIT <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>采用的ORM以mybatis 为例： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;-- 注意：resultType--&gt; </span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;existXxxxByXxx&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;integer&quot;</span>&gt;</span></span><br><span class="line">      SELECT </span><br><span class="line">      	1</span><br><span class="line">      FROM tableName</span><br><span class="line">      WHERE</span><br><span class="line">      	xxx = 123</span><br><span class="line">      AND </span><br><span class="line">      	is_deleted = 0</span><br><span class="line">      LIMIT 1</span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JAVA-1"><a href="#JAVA-1" class="headerlink" title="JAVA"></a>JAVA</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer exist = xxDao.existXxxxByXxx(params);</span><br><span class="line"><span class="comment">// return exist != null;</span></span><br><span class="line"><span class="keyword">return</span> Objects.nonNull(exist);</span><br></pre></td></tr></table></figure>
+
+<p>注意: 此处推荐采用包装类型来进行接收 , 直接通过判空来判断是否存在, SQL不在继续使用COUNT, 在SQL语句后面添加 LIMIT 1, 让数据库查询时遇到一条数据就返回, 不用再继续往下查找。</p>
 <blockquote>
-<p>工厂分为简单工厂模式(SimpleFactory),  工厂方法模式(FactoryMethod),  抽象工厂模式(AbstractFactory)。三种模式可以理解为同一种编程思想的三个版本。</p>
+<p>在查询或者更新的时候 推荐尽量加上LIMIT ，养成良好的编码习惯。</p>
 </blockquote>
 
     </div>
@@ -239,7 +254,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://shouge.me/2021/04/10/52956a7eae9c/" title="factory method">https://shouge.me/2021/04/10/52956a7eae9c/</a>
+    <a href="https://shouge.me/2021/04/11/40b026b41836/" title="sql判断记录是否存在">https://shouge.me/2021/04/11/40b026b41836/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -250,8 +265,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/design-pattrns/" rel="tag"># design-pattrns</a>
-              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/sql/" rel="tag"># sql</a>
           </div>
 
         
@@ -260,13 +274,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/04/01/fd4fdd97d439/" rel="prev" title="Java Nameing Conventions">
-      <i class="fa fa-chevron-left"></i> Java Nameing Conventions
+    <a href="/2021/04/10/52956a7eae9c/" rel="prev" title="factory method">
+      <i class="fa fa-chevron-left"></i> factory method
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/11/40b026b41836/" rel="next" title="sql判断记录是否存在">
-      sql判断记录是否存在 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -325,6 +336,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA"><span class="nav-number">2.</span> <span class="nav-text">JAVA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E5%86%99%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">推荐写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-1"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">2.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA-1"><span class="nav-number">3.</span> <span class="nav-text">JAVA</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
